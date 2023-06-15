@@ -19,3 +19,22 @@ spec:
         image: at8526/getting-started:latest
         ports:
         - containerPort: 3000
+
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: webapp
+  labels:
+    app: webapp
+spec:
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  selector:
+    app: webapp
+  type: NodePort
+  sessionAffinity: None
+  externalTrafficPolicy: Cluster
