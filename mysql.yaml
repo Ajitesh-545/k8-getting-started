@@ -15,21 +15,16 @@ spec:
     spec:
       containers:
         - name: mysql
-          image: mysql:8.0
+          image: mysql:latest
           ports:
             - containerPort: 3306
           env:
-          - name: MYSQL_ROOT_USER
-            valueFrom:
-              secretKeyRef:
-                name: mysql-secret
-                key: MYSQL_ROOT_USER
-          - name: MYSQL_ROOT_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: mysql-secret
-                key: MYSQL_ROOT_PASSWORD
----
+            - name: MYSQL_ROOT_PASSWORD
+              value: your-root-password
+
+
+--- 
+
 kind: Service
 apiVersion: v1
 metadata:
