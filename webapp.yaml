@@ -20,7 +20,6 @@ spec:
         ports:
         - containerPort: 3000
 
-
 ---
 kind: Service
 apiVersion: v1
